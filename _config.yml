@@ -25,25 +25,20 @@ social:
   rss: /feed.xml
 
 # Build settings
-include: ["_categories"]
-exclude: ["_screenshots","Gemfile", "Gemfile.lock"]
+include: ["_categories","assets"]
+# exclude: ["_screenshots","Gemfile", "Gemfile.lock"]
 permalink: /:year/:month/:day/:title/
 
 # Format
+highlighter: rouge 
 markdown: kramdown
-highlighter: rouge
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", tables]
 
-kramdown:
-  input: GFM
-
-# supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
-cover_color: green
 
 # Sass
 sass:
   style: compressed
 
 # Gems
-gems: [jekyll-paginate, jekyll-sitemap, octopress-autoprefixer]
+gems: [jekyll-paginate, jekyll-sitemap, jekyll-redirect-from,octopress-autoprefixer]
