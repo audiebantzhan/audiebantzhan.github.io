@@ -2,8 +2,8 @@
 layout: post
 title: "iTerm2 Configuration"
 date: 2016-1-11
-image: /images/2016/1/11/E15C793C-161A-4F38-9D67-F7C6B10B8338.jpg
-image-sm: /images/2016/1/11/E15C793C-161A-4F38-9D67-F7C6B10B8338.jpg
+image: /images/2016/1/11/iterm2.png
+image-sm: /images/2016/1/11/iterm2.png
 categories:
  - 笔记
 ---
