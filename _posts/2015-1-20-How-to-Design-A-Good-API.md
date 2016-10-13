@@ -5,6 +5,8 @@ date: 2015-5-21
 categories:
   - 笔记
 description:
+image: http://vibetickets.co.uk/wp-content/uploads/2016/03/restful-300x300.png
+image-sm: http://vibetickets.co.uk/wp-content/uploads/2016/03/restful-300x300.png
 ---
 
 ### Characteristics of good API

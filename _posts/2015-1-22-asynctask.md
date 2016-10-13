@@ -3,10 +3,11 @@ layout: post
 title: 'AsyncTask'
 date: '2015-1-23 01:10:00'
 description:
-image: https://unsplash.it/2000/1200?image=1003
-image-sm: https://unsplash.it/500/300?image=1003
+image: http://images.cnitblog.com/blog/107067/201302/06145440-4e5f6ae87edd430ea2ce38c19b61a8e0.png
+image-sm: http://images.cnitblog.com/blog/107067/201302/06145440-4e5f6ae87edd430ea2ce38c19b61a8e0.png
 categories:
   - Android
+
 ---
 
  异步任务类
@@ -59,6 +60,7 @@ new AsyncTask<Void, Void, Void>() {
 ```
 
 在AsyncTask源文件中看到我需要的线程池：
+
 ``` java
 /**
  *An {@link Executor} taht can be used to execute tasks in parallel.
@@ -126,6 +128,7 @@ public final AsyncTask<Params,Progress,Result>execute(Params... params){
 
 它是一个final类，这个时候，我需要这么做，
 它不能`override`父类方法，我就重新写一个方法包装一下：
+
 ``` java
 protected abstract class MyAsyncTask<Params> extends AsyncTask<Params,Void,Message>{
 	public final AsyncTask<Params,Void,Message> executeProxy(Params... params){
@@ -135,6 +138,7 @@ protected abstract class MyAsyncTask<Params> extends AsyncTask<Params,Void,Messa
 ```
 
 下面是改装版的AsyncTask完整代码：
+
 ``` java
 protected abstract class MyAsyncTask<Params> extends AsyncTask<Params,Void,Message>{
 	public final AsyncTask<Params,Void,Message> executeProxy(Params... params){
@@ -149,3 +153,5 @@ protected abstract class MyAsyncTask<Params> extends AsyncTask<Params,Void,Messa
 ```
 
 > 之所以这么做是因为我想在这个线程执行之前做一些操作，如果有网络就执行父类`execute`方法，如果没网络就做一个提示。
+
+[图片来源](http://www.cnblogs.com/leolcao/archive/2013/02/06/2906239.html)

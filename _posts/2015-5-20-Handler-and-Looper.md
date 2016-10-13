@@ -3,8 +3,8 @@ layout: post
 title: 'Handler 和 Looper 原理分析'
 date: '2015-5-20'
 description:
-image: https://unsplash.it/2000/1200?image=1003
-image-sm: https://unsplash.it/500/300?image=1003
+image: http://area.sinaapp.com/bingImg
+image-sm: http://area.sinaapp.com/bingImg
 categories:
   - Android
 ---
