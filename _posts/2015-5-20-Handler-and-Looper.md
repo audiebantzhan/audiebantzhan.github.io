@@ -15,10 +15,12 @@ categories:
 ![][1]
 > 把待处理的消息加处消息队列中，一直加到队列尾，一些优先级高的也可以加到队列头，提交的消息可以是按键，触屏等物理产生的消息，也可以是系统或者是应用本身发出的请求消息。
 > 处理线程不断的从消息队列中取出消息并处理。请求消息可以把优先级高的放到队列头，这样就可以优先处理。
-> * Looper类用于封装消息循环，有一个消息队列。
-> * Handler类封闭的消息投递，消息处理等接口。
+
+*  Looper类用于封装消息循环，有一个消息队列。
+* Handler类封闭的消息投递，消息处理等接口。
 
 ### Looper 分析
+
 ``` java
 //定义一个LooperThread
 class LooperThread extends Thread{
@@ -41,6 +43,7 @@ new LooperThread().start();//启动线程
 ```
 #### 第一个调用函数是`Looper`的`prepare()`，它具体做了哪些工作：
 `Looper.java`
+
 ``` java
 public static final void prepare(){
 	//一个Looper只调用一次prepare
@@ -58,6 +61,7 @@ public static final ThreadLocal sThreadLocal=new ThreadLocal();
 > `get` 获取调用线程的局部变量
 
 根据上面分析可知，perpare会在调用线程的局部变量中设置一个`Looper`对象，这个调用线程就是`LooperThread`的`Run`线程,`Looper`对象的构造如下所示：
+
 ``` java
 private Looper(){
 	//构造一个消息队列
@@ -74,6 +78,7 @@ private Looper(){
 
 #### 第二个调用函数 Looper循环
 `Looper.java`
+
 ``` java
 public static final void loop(){
 	//myLooper返回保存在ThreadLocal调用线程中返回的Looper对象
@@ -113,6 +118,7 @@ Handler封装了很多工作，首先来了解一下。
 ### Handler分析
 Handler中的成员
 `Handler.java`
+
 ``` java
 final MessageQueue mQueue;//Handler中也有一个消息队列
 final Looper mLooper;//也有一个Looper
@@ -120,6 +126,7 @@ final Callback mCallback;//有一个回调的类
 ```
 这几个成员变量是怎么使用的呢?首先得分析一下Handler的构造函数，Handler一共有四个构造函数，它们主要的区别是对上面这三个重要的成员的初始化上，逐个分析：
 `Handler.java`
+
 ``` java
 //构造函数
 public Handler(){
@@ -171,6 +178,7 @@ public Handler(Looper looper,Callback callback){
 
 ##### Handler和Message
 Handler提供了一系列的API，帮助我们创建发送消息和插入消息队列，详情还要阅读[API文档][2]。
+
 ``` java
 //查看消息队列中是否有消息码是what的消息码
 final boolean hasMessages(int what)
@@ -188,6 +196,7 @@ final void sendMessageAtFrontOfQueue(int what)
 ```
 对这些函数稍作分析就能明白其它函数，以`sendMessage`为例：
 `Handler.java`
+
 ``` java
 public final boolean sendMessage(Message msg){
 	return sendMessageDelayed(msg,0);//调用sendMessageDelayed
@@ -218,6 +227,7 @@ public final boolean sendMessageAtTime(Message msg,long uptimeMillis){
 
 ###### 我们在往Looper的消息队列中添加一条消息，按照Looper的处理规则，它会调用target的dispatchMessage，再把这个消息派发给Handler处理，Handler这块是怎么处理的呢？
 `Handler.java`
+
 ``` java
 public void dispatchMessage(Message msg){
 	//如果message本身有callback,就交给Message本身的callback处理
@@ -251,5 +261,5 @@ public void dispatchMessage(Message msg){
 
 
 
-[1]:/content/images/2015/5/20/handlerandlooper.png
+[1]:/images/2015/5/20/handlerandlooper.png
 [2]:http://developer.android.com/reference/android/os/Handler.html

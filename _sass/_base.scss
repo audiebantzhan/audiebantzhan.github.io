@@ -11,6 +11,7 @@ $color-alpha--light: #f5f3ef;
 $color-black: #0a0a0a;
 $color-grey: #f8f9f9;
 $color-white: #fff;
+$color-quotes: #7a7a7a;
 
 $mq-xs: 20em;
 $mq-sm: 30em;
@@ -18,6 +19,19 @@ $mq-md: 54em;
 $mq-lg: 64em;
 $mq-xl: 76.5em;
 $mq-xxl: 114em;
+
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 
 /**
  * Base Settings/Overwrite Normalize
@@ -109,6 +123,26 @@ ol, ul {
   list-style-type: none;
 }
 
+/* Misc */
+hr {
+  position: relative;
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #fff;
+}
+
+abbr {
+  font-size: 85%;
+  font-weight: bold;
+  color: #555;
+  text-transform: uppercase;
+}
+abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted #e5e5e5;
+}
+
 /**
  * Text Selection
  */
@@ -185,4 +219,145 @@ ol, ul {
    color: inherit;
    background-color: transparent;
    border-radius: 0;
+ }
+
+ strong {
+   color: #303030;
+ }
+
+
+ // ------------------------------
+ // Lists STYLING
+ // ------------------------------
+ ul, ol, dl {
+   margin-top: 0;
+   margin-bottom: 1rem;
+ }
+
+ dt {
+   font-weight: bold;
+ }
+ dd {
+   margin-bottom: .5rem;
+ }
+
+ // ------------------------------
+ // table
+ // ------------------------------
+ table {
+   width: 100%;
+   color: $gray-darkest;
+   font-size: .9em;
+   line-height: 1.8em;
+   border-spacing: 0;
+   border: 2px solid darken($primary-color, 10%);
+   margin: 30px 0px;
+   word-break: break-all;
+ }
+
+ thead tr:first-child {
+   color: darken($primary-color, 10%);
+   border: 1px solid $gray-light;
+   text-align: center;
+ }
+
+ th {font-weight: bold;}
+ th:first-child, td:first-child {
+   padding: 5px 10px 5px 10px;
+   border: 1px solid $gray-light;
+ }
+
+ thead tr:last-child th {
+     border: 1px solid $gray-light;
+ }
+
+ tbody td {
+     border-bottom: 1px solid $gray-light;
+     font-size: .85em;
+ }
+
+ td:last-child {
+   padding-right: 10px;
+ }
+
+ tr, td {
+   padding: 5px 10px;
+   border: 1px solid $gray-light;
+ }
+
+ table thead tbody {
+   vertical-align: middle;
+ }
+
+ .date,
+ .time,
+ .author,
+ .tags {
+   font-size: .8em;
+   color: darken($gray, 2%);
+
+   a {
+     color: $gray-darker;
+
+     &:hover {
+       color: $hover-color;
+     }
+
+   }
+
+ }
+
+ .excerpt {
+   margin: 0;
+   font-size: .9em;
+   color: $gray-dark;
+ }
+
+ .intro {
+   font-family: $serif-font;
+   font-size: 1.2em;
+   font-weight: lighter;
+   color: $gray-dark;
+ }
+
+ .block-heading {
+   @include column(12);
+   position: relative;
+   bottom: -15px;
+   font-size: .8em;
+   font-weight: bold;
+   text-align: center;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+ }
+
+ .label {
+   position: relative;
+   display: inline-block;
+   padding: 8px 18px 9px 18px;
+   background: $primary-color;
+   border-radius: $border-radius;
+   text-align: center;
+   color: #FFF;
+ }
+
+
+ /* Quotes */
+ blockquote {
+   color: $color-quotes;
+   padding: 10px 20px;
+   margin: .8rem 0;
+   font-family: $font-post;
+   font-weight: normal;;
+   font-size: 1em;
+   border-left: .25rem solid $primary-color;
+   background: lighten($blockquote-bg, 0%);
+
+   p {
+
+     &:last-child {
+       margin-bottom: 0;
+     }
+
+   }
  }

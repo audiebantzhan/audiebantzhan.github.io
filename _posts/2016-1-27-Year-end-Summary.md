@@ -5,6 +5,8 @@ date: '2016-1-27'
 description:
 categories:
   - 笔记
+image: http://area.sinaapp.com/bingImg
+image-sm: http://area.sinaapp.com/bingImg
 ---
 # 年终总结 2015
 

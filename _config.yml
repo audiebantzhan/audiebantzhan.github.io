@@ -10,6 +10,7 @@ title: Audiebant
 aphorisme: "笋因落箨方成竹，鱼为奔波始化龙"
 description: Android Developer
 url: "/images/profile/img_me.jpg"
+favico: "/images/profile/favicon.ico"
 
 twitter_username: ZhanAudiebant
 default_img: http://area.sinaapp.com/bingImg
@@ -30,7 +31,7 @@ include: ["_categories","assets"]
 permalink: /:year/:month/:day/:title/
 
 # Format
-highlighter: rouge 
+highlighter: rouge
 markdown: kramdown
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", tables]

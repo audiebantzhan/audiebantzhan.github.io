@@ -1,14 +1,14 @@
 @import
   'variables.scss',
+  'syntax',
+  'grid',
   'base',
   'mixins',
   'extends',
   'layout',
   'components',
   'animations',
-  'helpers',
-  'syntax',
-  'grid'
+  'helpers'
 ;
 
 @import 'tomorrow.css';
