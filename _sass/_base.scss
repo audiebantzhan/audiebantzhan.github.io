@@ -21,16 +21,14 @@ $mq-xl: 76.5em;
 $mq-xxl: 114em;
 
 
-* {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+
+html, body {
+  height: 100%;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
+html {
+    height: 100%;
+    max-height: 100%;
 }
 
 /**
@@ -41,10 +39,12 @@ body {
 }
 
 body {
-  font-family: $font-body;
+  font-family: $sans-font;
+  color: $gray-darker;
   font-feature-settings: 'liga' 0;
   font-size: 100%;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 
   @media (min-width: $mq-xs) {
     font-size: 102.5%;
@@ -116,12 +116,6 @@ img {
   max-width: 100%;
 }
 
-ol, ul {
-  margin: 0;
-  padding: 0;
-
-  list-style-type: none;
-}
 
 /* Misc */
 hr {
@@ -229,9 +223,32 @@ abbr[title] {
  // ------------------------------
  // Lists STYLING
  // ------------------------------
- ul, ol, dl {
+ li, ul {
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+}
+
+.post ul, ol, dl {
    margin-top: 0;
    margin-bottom: 1rem;
+   list-style-type:circle;
+
+}
+
+.post ol, ul {
+   list-style-type:circle;
+
+   li {
+     margin: 0 0 .2em 0;
+     line-height: 1.6em;
+   }
+
+   ol, ul {
+     margin: .1em 0 .2em 2em;
+   }
+
  }
 
  dt {
