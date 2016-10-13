@@ -1,0 +1,25 @@
+<div class="tab">
+  <ul class="cards">
+      {% for post in site.posts %}
+      {% if post.title == 'Friends' %}
+        <li class="card">
+          <a class="card__link" href="{{ site.baseurl }}/friends/">
+              <div class="card__img">
+                {% if post.image-sm %}
+                  <figure class="absolute-bg" style="background-image: url('{{ post.image-sm }}');"></figure>
+                {% else %}
+                  <figure class="absolute-bg" style="background-image: url('{{ post.image }}');"></figure>
+                {% endif %}
+              </div>
+            <div class="card__container">
+              <h2 class="card__header">{{ post.title }}</h2>
+              <p class="card__desc">{{ post.description }}</p>
+              <span class="card__more">View All</span>
+            </div>
+          </a>
+        </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  {% include archive-link.html %}
+</div>

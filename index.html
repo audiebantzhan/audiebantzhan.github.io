@@ -17,6 +17,7 @@ layout: default
       <ul class="tabs">
         <li class="tabs__item">Posts</li>
         <li class="tabs__item">Categories</li>
+        <li class="tabs__item">Friends</li>
       </ul>
     </header>
 
@@ -45,11 +46,11 @@ layout: default
           {% endif %}
         </div>
       {% endif %}
-
       {% include archive-link.html %}
     </div>
 
     {% include categories-tab.html %}
+    {% include friends-tab.html %}
 
   </div>
 
