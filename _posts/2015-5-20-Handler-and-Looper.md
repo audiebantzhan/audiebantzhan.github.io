@@ -41,7 +41,9 @@ class LooperThread extends Thread{
 new LooperThread().start();//启动线程
 }
 ```
-#### 第一个调用函数是`Looper`的`prepare()`，它具体做了哪些工作：
+
+####  第一个调用函数是`Looper`的`prepare()`，它具体做了哪些工作：
+
 `Looper.java`
 
 ``` java
